@@ -1,8 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -28,26 +26,16 @@ module.exports = {
         }
     },
     plugins: [
-        new CleanWebpackPlugin(['build']),
         new MiniCssExtractPlugin({
             filename: 'style.css',
         }),
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html'
-        }),
-        new CopyWebpackPlugin([{
-            from: './src/img',
-            to: './img/'
-        }, ]),
+        })
     ],
     module: {
-        rules: [{
-                enforce: 'pre',
-                test: /\.(js)$/,
-                exclude: /node_modules/,
-                use: 'eslint-loader'
-            },
+        rules: [
             {
                 test: /\.html$/,
                 exclude: /node_modules/,
