@@ -1,0 +1,17 @@
+@mixin font($size, $weight: 400) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  @mixin media-mobile {
+    @media (max-width: $mobile-width) {
+      @content;
+    }
+  }
+  
+  @mixin media-tablet {
+    @media (max-width: $tablet-width) {
+      @content;
+    }
+  }
