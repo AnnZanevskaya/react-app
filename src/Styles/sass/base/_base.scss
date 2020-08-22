@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 html {
-    font-family: 'Roboto', sans-serif;
     overflow: hidden;
 }
 
@@ -15,5 +12,5 @@ body {
 }
 
 h1 {
-    @include font($size: 2.4rem);
+    @include font($size: 1.4rem);
 }

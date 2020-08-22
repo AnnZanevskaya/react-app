@@ -1,0 +1,30 @@
+.header__button {
+    margin-top: 10px;
+}
+
+.button {
+    border: none;
+    font-size: 1.875rem;
+    height: 50px;
+    min-width: 74px;
+    color: $color-red;
+
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .45);
+    padding: 5px 20px;
+
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: .1px;
+    border-radius: 2px;
+    text-align: center;
+    @include font($size: 1.2rem);
+    text-transform: uppercase;
+}
+
+.button-gray {
+    background-color: $color-gray;
+
+    &:hover {
+        background-color: lighten($color: $color-gray, $amount: 10%);
+    }
+}

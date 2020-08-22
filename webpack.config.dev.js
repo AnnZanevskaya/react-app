@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -36,11 +36,17 @@ module.exports = {
             template: './src/index.html',
             filename: './index.html'
         }),
-        new ExtractTextPlugin('style.css')
+        new CopyWebpackPlugin({
+            patterns: [
+              {
+                from: './src/Assets',
+                to: './assets/',
+              }
+            ],
+          }),
     ],
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
@@ -65,22 +71,24 @@ module.exports = {
                 ]
             },
             {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                  fallback: 'style-loader',
-                  use: ['css-loader', 'sass-loader']
-                })
+                test: /\.(scss|css)$/,
+                use: [
+                  MiniCssExtractPlugin.loader,
+                  'css-loader',
+                  'postcss-loader',
+                  'sass-loader',
+                ],
               },
             {
-                test: /\.(gif|png|jpe?g|svg)$/i,
+                test: /\.(jpe?g|png|svg|gif)$/,
                 use: [{
                         loader: 'file-loader',
                         options: {
-                            name: 'img/[name].[ext]'
+                            outputPath: 'img',
+                            name: '[name].[ext]'
                         }
-                    },
-                    'image-webpack-loader'
-                ],
+                    }
+                ]
             }
         ]
     }

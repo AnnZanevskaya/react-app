@@ -1,3 +1,35 @@
 .header {
     background: $color-primary;
-  }
+    height: 400px;
+}
+
+.header__cover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/header.jpg");
+    background-repeat: no-repeat;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    height: 400px;
+}
+
+.header__content {
+    position: absolute;
+    top: 10px;
+    z-index: 2;
+    max-width: $content-width;
+    width: 100%;
+    
+}
+
+.header__top {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    color: $color-red;
+}
+
+.logo-bold {
+    font-weight: 900;
+}
