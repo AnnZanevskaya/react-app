@@ -1,0 +1,25 @@
+.search__button.button {
+    width: 240px;
+    vertical-align: middle;
+}
+
+.search__input{
+    width: 700px;
+    height: 50px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    margin-left: 80px;
+    background-color: $color-dark;
+    color:  $color-gray;
+    border: none;
+
+    @include font($size:1.6rem);
+    padding-left: 10px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .45);
+    vertical-align: middle;
+
+    &::placeholder{
+        color: $color-gray;
+    }
+}

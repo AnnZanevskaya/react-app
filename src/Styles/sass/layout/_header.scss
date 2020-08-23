@@ -26,6 +26,15 @@
     justify-content: space-between;
 }
 
+.header__description{
+    color: $color-secondary;
+    text-transform: uppercase;
+    @include font($size: 2.2rem);
+    letter-spacing: 2px;
+    margin-left: 80px;
+    margin-top: 0px;
+}
+
 .logo {
     color: $color-red;
 }

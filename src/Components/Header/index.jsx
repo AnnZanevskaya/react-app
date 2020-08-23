@@ -12,11 +12,17 @@ const Header = () => (
                         </h1>
 
                     <button className="header__button button button-gray">+ ADD MOVIE</button>
-                    
+                </div>
+                <h2 className="header__description">Find your movie</h2>
+                <div className="header__search search">
+                    <form className="search__form">
+                        <input className="search__input" placeholder="What do you want to watch?"></input>
+                        <button className="search__button button button-red">Search</button>
+                    </form>
                 </div>
             </div>
         </Wrapper>
-    </header>
+    </header >
 );
 
 export default Header;
