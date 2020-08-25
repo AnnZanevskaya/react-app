@@ -13,11 +13,13 @@ const MovieContent = () => (
                 <Filter />
                 <Sort />
             </div>
-            <ResultsCount />
+            <ResultsCount 
+                count={movies.length}/>
 
             <div className="movie-list">
                 {movies.map((movie) => (
                     <MovieCard
+                        key={movie.id}
                         id={movie.id}
                         imageSrc={movie.imageSrc}
                         title={movie.title}
