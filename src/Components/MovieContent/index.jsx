@@ -4,6 +4,7 @@ import Filter from "../Filter";
 import Sort from "../Sort";
 import ResultsCount from "../ResultsCount";
 import MovieCard from "../MovieCard";
+import { movies } from "../Constants/constants";
 
 const MovieContent = () => (
     <div className="content">
@@ -15,14 +16,15 @@ const MovieContent = () => (
             <ResultsCount />
 
             <div className="movie-list">
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-
+                {movies.map((movie) => (
+                    <MovieCard
+                        id={movie.id}
+                        imageSrc={movie.imageSrc}
+                        title={movie.title}
+                        genre={movie.genre}
+                        year={movie.year}
+                    />
+                ))}
             </div>
         </Wrapper>
     </div >

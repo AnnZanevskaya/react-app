@@ -4,7 +4,7 @@ const Sort = () => (
     <div className="content__sort">
         <h4 className="sort__title">Sort by</h4>
         <select className="sort__select">
-            <option selected>Release Date</option>
+            <option>Release Date</option>
         </select>
     </div>
 )
