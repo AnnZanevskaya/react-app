@@ -1,0 +1,27 @@
+.movie-card {
+    margin: 10px 70px 10px 0;
+    color: $color-gray-light;
+    @include font($size: 1.2rem);
+}
+
+.movie-card__info {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-card__desc {
+    font-weight: 600;
+}
+
+.movie-card__genre {
+    padding-top: 5px;
+    @include font($size: 0.9rem);
+}
+
+.movie-card__year{
+    border: 1px solid $color-gray-light;
+    padding: 5px 10px;
+    border-radius: 5px;
+    @include font($size: 0.9rem);
+}

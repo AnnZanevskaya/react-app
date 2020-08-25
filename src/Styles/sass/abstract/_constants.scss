@@ -4,11 +4,12 @@ $color-light: #ffffff;
 $color-primary: #000;
 $color-secondary:#f4f7f6;
 $color-gray-lighten: rgba(85, 85, 85, 0.4);
+$color-gray-light:  lighten(#555555, 20%);
 $color-gray:  #555555;
 $color-dark-gray:  #424242;
 
 $color-red: #f65261;
 
-$content-width: 1400px;
+$content-width: 1200px;
 $tablet-width: 960px;
 $mobile-width: 640px;
