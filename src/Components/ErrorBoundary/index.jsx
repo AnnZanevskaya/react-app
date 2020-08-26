@@ -5,7 +5,7 @@ const ErrorBoundary = (props) => {
         <h2 className="text-error">Sorry, something went wrong</h2>
     )
 
-    let isLoaded = false;
+    let isLoaded = true;
 
     return <>{isLoaded ? props.children : <OopsText />}</>
 }
