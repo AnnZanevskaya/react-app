@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../../Components/Header";
-import MovieContent from "../../Components/MovieContent";
+import Content from "../../Components/Content";
 import Footer from "../../Components/Footer";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <MovieContent />
+      <Content />
       <Footer />
     </>
   );
