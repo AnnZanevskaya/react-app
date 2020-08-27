@@ -1,9 +1,5 @@
 import React from 'react';
 
-const OopsText = () => (
-    <h2 className="text-error">Sorry, something went wrong</h2>
-)
-
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +16,7 @@ class ErrorBoundary extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            return <OopsText />
+            return <h2 className="text-error">Sorry, something went wrong</h2>
         }
 
         return this.props.children;
