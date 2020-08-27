@@ -3,7 +3,6 @@ import ResultsCount from "../ResultsCount";
 import MovieCard from "../MovieCard";
 import { movies } from "../../Constants/constants.js";
 
-
 const MovieList = () => (
     <>
         <ResultsCount

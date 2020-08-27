@@ -12,7 +12,7 @@ const MovieCard = (props) => (
                 <p className="movie-card__genre">{props.genre}</p>
             </div>
             <div className="movie-card__chip">
-                <p className="movie-card__year">{props.year}</p>
+                <p className="movie-card__year">{new Date(props.year).getFullYear()}</p>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@ MovieCard.propTypes = {
     imageSrc: PropTypes.string,
     title: PropTypes.string.isRequired,
     genre: PropTypes.string,
-    year: PropTypes.number
+    year: PropTypes.string
 }
 
 MovieCard.defaultProps = {
