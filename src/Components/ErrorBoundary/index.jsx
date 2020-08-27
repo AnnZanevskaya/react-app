@@ -1,13 +1,30 @@
 import React from 'react';
 
-const ErrorBoundary = (props) => {
-    const OopsText = () => (
-        <h2 className="text-error">Sorry, something went wrong</h2>
-    )
+const OopsText = () => (
+    <h2 className="text-error">Sorry, something went wrong</h2>
+)
 
-    let isLoaded = true;
+class ErrorBoundary extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { hasError: false };
+    }
 
-    return <>{isLoaded ? props.children : <OopsText />}</>
+    static getDerivedStateFromError(error) {
+        return { hasError: true };
+    }
+
+    componentDidCatch(error, errorInfo) {
+        console.error(`Error: ${error}. Error Info: ${errorInfo}`);
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return <OopsText />
+        }
+
+        return this.props.children;
+    }
 }
 
 export default ErrorBoundary;
