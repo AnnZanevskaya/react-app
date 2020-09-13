@@ -5,7 +5,7 @@ import Sort from "../Sort";
 import MovieList from "../MovieList";
 import ErrorBoundary from "../ErrorBoundary";
 
-const Content = () => (
+const MoviesContent = () => (
     <div className="content">
         <Wrapper>
             <div className="content__nav">
@@ -20,4 +20,4 @@ const Content = () => (
     </div >
 );
 
-export default Content;
+export default MoviesContent;
