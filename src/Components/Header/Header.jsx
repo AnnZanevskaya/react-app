@@ -2,8 +2,8 @@ import React from "react";
 
 import Wrapper from "../Wrapper";
 import Logo from "../Logo";
-import AddMovie from "../AddMovie";
 import Search from "../Search";
+import MovieAdd from "../MovieAdd";
 
 const Header = () => (
     <header className="header">
@@ -12,7 +12,7 @@ const Header = () => (
             <div className="header__content">
                 <div className="header__top">
                     <Logo />
-                    <AddMovie />
+                    <MovieAdd />
                 </div>
                 <Search />
             </div>

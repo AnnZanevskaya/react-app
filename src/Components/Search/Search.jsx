@@ -2,7 +2,7 @@ import React from "react";
 
 const Search = () => (
     <>
-        <h2 className="header__description">Find your movie</h2>
+        <h2 className="header__description description">Find your movie</h2>
 
         <div className="header__search search">
             <form className="search__form">

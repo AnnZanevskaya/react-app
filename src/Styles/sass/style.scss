@@ -5,6 +5,7 @@
 // base
 @import './base/base';
 @import './base/button';
+@import './base/typography';
 
 //Layouts
 @import "layout/header";
@@ -22,3 +23,4 @@
 @import "./components/movie-card";
 @import "./components/footer";
 @import "./components/error";
+@import "./components/modal";
