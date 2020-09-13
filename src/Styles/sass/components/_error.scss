@@ -1,0 +1,5 @@
+.text-error{
+    color: $color-red;
+    @include font($size: 1.2rem);
+    padding: 20px;
+}

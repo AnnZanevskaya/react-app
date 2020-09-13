@@ -1,0 +1,38 @@
+.sort__title {
+    display: inline-block;
+    color: $color-gray;
+
+    @include font($size:1rem);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-right: 10px;
+}
+
+.sort__select {
+    @include font($size:1rem);
+
+    border: none;
+    color: $color-light;
+    letter-spacing: 2px;
+    
+    height: 34px;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    text-transform: uppercase;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+
+
+select::-ms-expand {
+    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
