@@ -1,12 +1,11 @@
 import React from "react";
+
 import ResultsCount from "../ResultsCount";
 import MovieCard from "../MovieCard";
-import { movies } from "../../Constants/constants.js";
 
-const MovieList = () => (
+const MovieList = ({ movies }) => (
     <>
-        <ResultsCount
-            count={movies.length} />
+        <ResultsCount count={movies.length} />
         <div className="movie-list">
             {movies.map((movie) => (
                 <MovieCard
