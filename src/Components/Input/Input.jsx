@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ name, type, label, value }) => {
+const Input = ({ name, type, label, value, placeholder }) => {
     return (
-        <>
-            <label htmlFor={name}>
+        <div className="input__container">
+            <label className="label" htmlFor={name}>
                 {label}
-                <input type={type} className="input" value={value} />
             </label>
-        </>
+            <input className="input" type={type} value={value} placeholder={placeholder}/>
+        </div>
     );
 }
 

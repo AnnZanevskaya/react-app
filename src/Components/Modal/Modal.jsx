@@ -5,10 +5,12 @@ const Modal = ({ handleClose, show, children }) => {
 
     return (
         <div className={`modal__container ${showHideClassName}`}>
-            <section className="modal__body">
-                {children}
-                <span class="button-close modal__close material-icons" onClick={handleClose}>close</span>
-            </section>
+            <div className="modal__dialog">
+                <section className="modal__body">
+                    {children}
+                    <span className="button-close modal__close material-icons" onClick={handleClose}>close</span>
+                </section>
+            </div>
         </div>
     );
 };
