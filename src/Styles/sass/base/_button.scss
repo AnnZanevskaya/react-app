@@ -40,6 +40,16 @@
     }
 }
 
+.button-bordered {
+    background-color: darken($color: $color-dark, $amount: 10%);
+    color: $color-red;
+    border: 1px solid $color-red;
+
+    &:hover {
+        background-color: $color-dark;
+    }
+}
+
 .button-close{
     color: $color-light;
     cursor: pointer;

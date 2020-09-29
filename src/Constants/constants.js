@@ -27,3 +27,21 @@ export let movies = [{
         year: "2012-02-07"
     }
 ];
+
+export let genres = [{
+        label: 'Comedy',
+        value: 'Comedy'
+    },
+    {
+        label: 'Documentary',
+        value: 'Documentary'
+    },
+    {
+        label: 'Horror',
+        value: 'Horror'
+    },
+    {
+        label: 'Crime',
+        value: 'Crime'
+    },
+];

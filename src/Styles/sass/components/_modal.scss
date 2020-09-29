@@ -36,3 +36,12 @@
     right: 10px;
     padding: 5px;
 }
+
+.modal__buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal__buttons .button{
+    margin-left: 10px;
+}
