@@ -6,14 +6,15 @@ const Input = ({ name, type, label, value, placeholder }) => {
         <div className="input__container">
             <label className="label" htmlFor={name}>
                 {label}
+                <input id={name} className="input" type={type} value={value} placeholder={placeholder} />
             </label>
-            <input className="input" type={type} value={value} placeholder={placeholder}/>
         </div>
     );
 }
 
 Input.propTypes = {
-    name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
     type: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired

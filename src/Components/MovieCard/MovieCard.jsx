@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 
 import MovieActionsMenu from '../MovieActionsMenu';
 import MovieEdit from '../MovieEdit';
+import MovieDelete from '../MovieDelete';
+
 import './style.css';
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({ movie }) => {
     const [isMovieActionMenuShow, setIsShowing] = useState(false);
-    const [isMovieEditModalShow, setIsShowingModal] = useState(false);
+    const [isMovieEditModalShow, setIsShowingEditModal] = useState(false);
+    const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useState(false);
+
 
     function toggleMovieActionMenu() {
         setIsShowing(!isMovieActionMenuShow);
@@ -18,7 +22,12 @@ const MovieCard = ({movie}) => {
     }
 
     function toggleMovieEditModal() {
-        setIsShowingModal(!isMovieEditModalShow);
+        setIsShowingEditModal(!isMovieEditModalShow);
+        closeMovieActionMenu();
+    }
+
+    function toggleMovieDeleteModal() {
+        setIsShowingDeleteModal(!isMovieDeleteModalShow);
         closeMovieActionMenu();
     }
 
@@ -28,12 +37,16 @@ const MovieCard = ({movie}) => {
                 <div className="movie-card__img movie-card__action-menu">
                     <img width="320" height="460" src={movie.imageSrc} onClick={closeMovieActionMenu}></img>
 
-                    <MovieActionsMenu toggleMovieActionMenu={toggleMovieActionMenu} show={isMovieActionMenuShow} editAction={toggleMovieEditModal} />
+                    <MovieActionsMenu
+                        toggleMovieActionMenu={toggleMovieActionMenu}
+                        show={isMovieActionMenuShow}
+                        editAction={toggleMovieEditModal}
+                        deleteAction={toggleMovieDeleteModal} />
                 </div>
                 <div className="movie-card__info">
                     <div>
                         <p className="movie-card__desc">{movie.title}</p>
-                        <p className="movie-card__genre">{movie.genres.join(',')}</p>
+                        <p className="movie-card__genre">{movie.genres.join(', ')}</p>
                     </div>
                     <div className="movie-card__chip">
                         <p className="movie-card__year">{new Date(movie.year).getFullYear()}</p>
@@ -42,6 +55,7 @@ const MovieCard = ({movie}) => {
             </div>
 
             <MovieEdit movie={movie} show={isMovieEditModalShow} handleClose={toggleMovieEditModal} />
+            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} />
         </>
     )
 }
