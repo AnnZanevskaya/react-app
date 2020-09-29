@@ -1,0 +1,25 @@
+.action-menu {
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6));
+    padding: 20px 10px 20px 20px;
+    width: 80px;
+    height: 50px;
+}
+
+.action-menu .button-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.action-menu p{
+    padding-bottom: 10px;
+    color:#f4f7f6;
+}
+
+.action-menu p:hover{
+    cursor: pointer;
+    color: #f65261;
+}

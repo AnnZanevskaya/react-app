@@ -1,16 +1,26 @@
-import React ,  { useState } from "react";
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
 import MovieActionsMenu from '../MovieActionsMenu';
 import './style.css';
 
 const MovieCard = ({ title, genre, imageSrc, year }) => {
+    const [isMovieActionMenuShow, setIsShowing] = useState(false);
+
+    function toggleMovieActionMenu() {
+        setIsShowing(!isMovieActionMenuShow);
+    }
+
+    function closeMovieActionMenu(){
+        setIsShowing(false);
+    }
 
     return (
         <div className="movie-card">
             <div className="movie-card__img movie-card__action-menu">
-                <img width="320" height="460" src={imageSrc}></img>
-                <MovieActionsMenu />
+                <img width="320" height="460" src={imageSrc} onClick={closeMovieActionMenu}></img>
+               
+                <MovieActionsMenu toggleMovieActionMenu={toggleMovieActionMenu} show={isMovieActionMenuShow} />
             </div>
             <div className="movie-card__info">
                 <div>

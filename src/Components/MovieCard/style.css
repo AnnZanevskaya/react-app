@@ -1,3 +1,7 @@
+.movie-card {
+    position: relative;
+}
+
 .movie-card__action-menu {
     position: relative;
 }
