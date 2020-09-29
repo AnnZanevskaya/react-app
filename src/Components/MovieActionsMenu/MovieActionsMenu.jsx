@@ -2,13 +2,13 @@ import React from "react";
 
 import './style.css';
 
-const MovieActionsMenu = ({ toggleMovieActionMenu, show }) => {
+const MovieActionsMenu = ({ toggleMovieActionMenu, show, editAction, deleteAction }) => {
     if (show)
         return (
             <div className="action-menu">
                 <span className="button-close material-icons" onClick={toggleMovieActionMenu}>close</span>
-                <p>Edit</p>
-                <p>Delete</p>
+                <p onClick={editAction}>Edit</p>
+                <p onClick={deleteAction}>Delete</p>
             </div>
         )
     else

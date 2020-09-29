@@ -5,7 +5,7 @@ import Input from '../Input';
 import Select from '../Select';
 import { genres } from '../../Constants/constants';
 
-function MovieAdd() {
+const MovieAdd = () => {
     const [isShow, setIsShowing] = useState(false);
 
     function toggle() {
@@ -27,8 +27,6 @@ function MovieAdd() {
                     <button className="header__button button button-bordered">RESET</button>
                     <button className="header__button button button-red">SUBMIT</button>
                 </div>
-
-
             </Modal>
             <button className="header__button button button-gray" onClick={toggle}>+ ADD MOVIE</button>
         </>
