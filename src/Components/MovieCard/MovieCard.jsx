@@ -1,17 +1,25 @@
-import React, { useState } from "react";
-import PropTypes from 'prop-types';
+import React, { useState, useCallback, useContext } from "react";
+import { render } from 'react-dom';
+import PropTypes, { func } from 'prop-types';
 
 import MovieActionsMenu from '../MovieActionsMenu';
 import MovieEdit from '../MovieEdit';
 import MovieDelete from '../MovieDelete';
 
 import './style.css';
+import HeaderContext from "../../Providers/HeaderContext";
 
 const MovieCard = ({ movie }) => {
+    const { onMovieDetails } = useContext(HeaderContext);
+
+    const onDetailsPreview = useCallback(() => onMovieDetails(movie), [
+        movie,
+        onMovieDetails,
+    ]);
+
     const [isMovieActionMenuShow, setIsShowing] = useState(false);
     const [isMovieEditModalShow, setIsShowingEditModal] = useState(false);
     const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useState(false);
-
 
     function toggleMovieActionMenu() {
         setIsShowing(!isMovieActionMenuShow);
@@ -33,7 +41,7 @@ const MovieCard = ({ movie }) => {
 
     return (
         <>
-            <div className="movie-card">
+            <div className="movie-card" onClick={onDetailsPreview}>
                 <div className="movie-card__img movie-card__action-menu">
                     <img width="320" height="460" src={movie.imageSrc} onClick={closeMovieActionMenu}></img>
 
