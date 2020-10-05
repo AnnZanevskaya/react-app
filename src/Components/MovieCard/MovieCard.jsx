@@ -4,6 +4,7 @@ import PropTypes, { func } from 'prop-types';
 import MovieActionsMenu from '../MovieActionsMenu';
 import MovieEdit from '../MovieEdit';
 import MovieDelete from '../MovieDelete';
+import { useToggle } from '../../Hooks/hooks';
 
 import './style.css';
 import HeaderContext from "../../Providers/HeaderContext";
@@ -16,12 +17,13 @@ const MovieCard = ({ movie }) => {
         onMovieDetails,
     ]);
 
-    const [isMovieActionMenuShow, setIsShowing] = useState(false);
-    const [isMovieEditModalShow, setIsShowingEditModal] = useState(false);
-    const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useState(false);
+
+    const [isMovieActionMenuShow, setIsShowing] = useToggle();
+    const [isMovieEditModalShow, setIsShowingEditModal] = useToggle();
+    const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useToggle();
 
     function toggleMovieActionMenu() {
-        setIsShowing(!isMovieActionMenuShow);
+        setIsShowing();
     }
 
     function closeMovieActionMenu() {
@@ -29,12 +31,12 @@ const MovieCard = ({ movie }) => {
     }
 
     function toggleMovieEditModal() {
-        setIsShowingEditModal(!isMovieEditModalShow);
+        setIsShowingEditModal();
         closeMovieActionMenu();
     }
 
     function toggleMovieDeleteModal() {
-        setIsShowingDeleteModal(!isMovieDeleteModalShow);
+        setIsShowingDeleteModal();
         closeMovieActionMenu();
     }
 
@@ -68,9 +70,9 @@ const MovieCard = ({ movie }) => {
 }
 
 MovieCard.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     imageSrc: PropTypes.string,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     genre: PropTypes.string,
     year: PropTypes.string
 }

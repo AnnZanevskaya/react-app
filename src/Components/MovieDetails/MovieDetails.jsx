@@ -29,7 +29,7 @@ const MovieDetails = ({movie}) => {
 MovieDetails.propTypes = {
     movie: PropTypes.shape({
         title: PropTypes.string,
-        rating: PropTypes.string,
+        rating: PropTypes.number,
         genres: PropTypes.arrayOf(PropTypes.string),
         year: PropTypes.string,
         runtime: PropTypes.number,

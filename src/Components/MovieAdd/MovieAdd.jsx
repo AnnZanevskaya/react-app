@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import Modal from '../Modal';
 import Input from '../Input';
 import Select from '../Select';
+import { useToggle } from '../../Hooks/hooks';
 import { genres } from '../../Constants/constants';
 
 const MovieAdd = () => {
-    const [isShow, setIsShowing] = useState(false);
+    const [isShow, setIsShowing] = useToggle();
 
     function toggle() {
-        setIsShowing(!isShow);
+        setIsShowing();
     }
 
     return (

@@ -8,7 +8,7 @@ const MovieList = ({ movies }) => (
         <ResultsCount count={movies.length} />
         <div className="movie-list">
             {movies.map((movie) => (
-                <MovieCard movie={movie}/>
+                <MovieCard key={movie.id} movie={movie}/>
             ))}
         </div>
     </>
