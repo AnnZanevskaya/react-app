@@ -1,22 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
-const MovieCard = ({ title, genre, imageSrc, year }) => (
-    <div className="movie-card">
-        <div className="movie-card__img">
-            <img width="320" height="460" src={imageSrc}></img>
-        </div>
-        <div className="movie-card__info">
-            <div>
-                <p className="movie-card__desc">{title}</p>
-                <p className="movie-card__genre">{genre}</p>
+import MovieActionsMenu from '../MovieActionsMenu';
+import MovieEdit from '../MovieEdit';
+import MovieDelete from '../MovieDelete';
+
+import './style.css';
+
+const MovieCard = ({ movie }) => {
+    const [isMovieActionMenuShow, setIsShowing] = useState(false);
+    const [isMovieEditModalShow, setIsShowingEditModal] = useState(false);
+    const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useState(false);
+
+
+    function toggleMovieActionMenu() {
+        setIsShowing(!isMovieActionMenuShow);
+    }
+
+    function closeMovieActionMenu() {
+        setIsShowing(false);
+    }
+
+    function toggleMovieEditModal() {
+        setIsShowingEditModal(!isMovieEditModalShow);
+        closeMovieActionMenu();
+    }
+
+    function toggleMovieDeleteModal() {
+        setIsShowingDeleteModal(!isMovieDeleteModalShow);
+        closeMovieActionMenu();
+    }
+
+    return (
+        <>
+            <div className="movie-card">
+                <div className="movie-card__img movie-card__action-menu">
+                    <img width="320" height="460" src={movie.imageSrc} onClick={closeMovieActionMenu}></img>
+
+                    <MovieActionsMenu
+                        toggleMovieActionMenu={toggleMovieActionMenu}
+                        show={isMovieActionMenuShow}
+                        editAction={toggleMovieEditModal}
+                        deleteAction={toggleMovieDeleteModal} />
+                </div>
+                <div className="movie-card__info">
+                    <div>
+                        <p className="movie-card__desc">{movie.title}</p>
+                        <p className="movie-card__genre">{movie.genres.join(', ')}</p>
+                    </div>
+                    <div className="movie-card__chip">
+                        <p className="movie-card__year">{new Date(movie.year).getFullYear()}</p>
+                    </div>
+                </div>
             </div>
-            <div className="movie-card__chip">
-                <p className="movie-card__year">{new Date(year).getFullYear()}</p>
-            </div>
-        </div>
-    </div>
-)
+
+            <MovieEdit movie={movie} show={isMovieEditModalShow} handleClose={toggleMovieEditModal} />
+            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} />
+        </>
+    )
+}
 
 MovieCard.propTypes = {
     id: PropTypes.string.isRequired,

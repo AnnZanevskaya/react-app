@@ -8,14 +8,7 @@ const MovieList = ({ movies }) => (
         <ResultsCount count={movies.length} />
         <div className="movie-list">
             {movies.map((movie) => (
-                <MovieCard
-                    key={movie.id}
-                    id={movie.id}
-                    imageSrc={movie.imageSrc}
-                    title={movie.title}
-                    genre={movie.genre}
-                    year={movie.year}
-                />
+                <MovieCard movie={movie}/>
             ))}
         </div>
     </>

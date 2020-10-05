@@ -1,0 +1,13 @@
+.multi-select {
+    --rmsc-main: #232323 !important;
+    --rmsc-hover: #555555 !important;
+    --rmsc-selected: #555555 !important;
+    --rmsc-border: #232323 !important;
+    --rmsc-gray: #aaa;
+    --rmsc-bg:#232323 !important;
+    --rmsc-p: 10px; 
+    --rmsc-radius: 4px; 
+    --rmsc-h: 38px;
+    color: #666;
+    font-size: 1.2rem;
+  }

@@ -31,11 +31,30 @@
     }
 }
 
-.button-red{
+.button-red {
     background-color: $color-red;
     color: $color-light;
 
     &:hover {
         background-color: lighten($color: $color-red, $amount: 10%);
+    }
+}
+
+.button-bordered {
+    background-color: darken($color: $color-dark, $amount: 10%);
+    color: $color-red;
+    border: 1px solid $color-red;
+
+    &:hover {
+        background-color: $color-dark;
+    }
+}
+
+.button-close{
+    color: $color-light;
+    cursor: pointer;
+
+    &:hover{
+        color: darken($color: $color-light, $amount: 20%)
     }
 }
