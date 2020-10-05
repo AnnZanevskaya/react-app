@@ -2,6 +2,6 @@ import {
     movies
 } from "../Constants/constants.js";
 
-export const GetAllMovies = () => {
+export const getAllMovies = () => {
     return movies;
 }
