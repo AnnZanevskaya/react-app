@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useContext } from "react";
-import { render } from 'react-dom';
 import PropTypes, { func } from 'prop-types';
 
 import MovieActionsMenu from '../MovieActionsMenu';

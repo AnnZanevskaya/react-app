@@ -15,7 +15,7 @@ export default function HomePage() {
     [setDetails]
   );
 
-  const filmActions = useMemo(
+  const movieDetails = useMemo(
     () => ({ onMovieDetails }),
     [onMovieDetails],
   );
@@ -25,7 +25,7 @@ export default function HomePage() {
   }
 
   return (
-    <HeaderContext.Provider value={filmActions}>
+    <HeaderContext.Provider value={movieDetails}>
       <Header movie={movie} onClose={onMovieDetailsClose} />
       <MoviesContent />
       <Footer />

@@ -5,7 +5,7 @@ import Filter from "../Filter";
 import Sort from "../Sort";
 import MovieList from "../MovieList";
 import ErrorBoundary from "../ErrorBoundary";
-import { movies } from "../../Constants/constants.js";
+import * as MovieService from "../../Services/movie-service";
 
 const MoviesContent = () => (
     <div className="content">
@@ -16,7 +16,7 @@ const MoviesContent = () => (
             </div>
 
             <ErrorBoundary>
-                <MovieList movies={movies} />
+                <MovieList movies={MovieService.GetAllMovies()} />
             </ErrorBoundary>
         </Wrapper>
     </div >
