@@ -1,20 +1,29 @@
-import React, { useState } from "react";
-import PropTypes from 'prop-types';
+import React, { useState, useCallback, useContext } from "react";
+import PropTypes, { func } from 'prop-types';
 
 import MovieActionsMenu from '../MovieActionsMenu';
 import MovieEdit from '../MovieEdit';
 import MovieDelete from '../MovieDelete';
+import { useToggle } from '../../Hooks/hooks';
 
 import './style.css';
+import HeaderContext from "../../Providers/HeaderContext";
 
 const MovieCard = ({ movie }) => {
-    const [isMovieActionMenuShow, setIsShowing] = useState(false);
-    const [isMovieEditModalShow, setIsShowingEditModal] = useState(false);
-    const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useState(false);
+    const { onMovieDetails } = useContext(HeaderContext);
 
+    const onDetailsPreview = useCallback(() => onMovieDetails(movie), [
+        movie,
+        onMovieDetails,
+    ]);
+
+
+    const [isMovieActionMenuShow, setIsShowing] = useToggle();
+    const [isMovieEditModalShow, setIsShowingEditModal] = useToggle();
+    const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useToggle();
 
     function toggleMovieActionMenu() {
-        setIsShowing(!isMovieActionMenuShow);
+        setIsShowing();
     }
 
     function closeMovieActionMenu() {
@@ -22,18 +31,18 @@ const MovieCard = ({ movie }) => {
     }
 
     function toggleMovieEditModal() {
-        setIsShowingEditModal(!isMovieEditModalShow);
+        setIsShowingEditModal();
         closeMovieActionMenu();
     }
 
     function toggleMovieDeleteModal() {
-        setIsShowingDeleteModal(!isMovieDeleteModalShow);
+        setIsShowingDeleteModal();
         closeMovieActionMenu();
     }
 
     return (
         <>
-            <div className="movie-card">
+            <div className="movie-card" onClick={onDetailsPreview}>
                 <div className="movie-card__img movie-card__action-menu">
                     <img width="320" height="460" src={movie.imageSrc} onClick={closeMovieActionMenu}></img>
 
@@ -61,9 +70,9 @@ const MovieCard = ({ movie }) => {
 }
 
 MovieCard.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     imageSrc: PropTypes.string,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     genre: PropTypes.string,
     year: PropTypes.string
 }

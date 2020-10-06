@@ -1,0 +1,46 @@
+.movie-details {
+    display: flex;
+    justify-content: space-between;
+
+    color: #f4f7f6;
+}
+
+.preview-small {
+    width: 280px;
+    height: 390px;
+}
+
+.movie-details__info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.movie-details__description {
+    margin-left: 50px;
+    font-size: 1.2rem;
+}
+
+.description__title {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    padding-right: 10px;
+}
+
+.rating {
+    border: 1px solid #f4f7f6;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #009000;
+}
+
+.year{
+    color: #f65261;
+    padding-right: 30px;
+    font-size: 1.6rem;
+}
+
+.runtime{
+    color: #f65261;
+    font-size: 1.6rem;
+}
