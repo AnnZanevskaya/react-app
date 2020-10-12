@@ -44,7 +44,7 @@ const MovieCard = ({ movie }) => {
         <>
             <div className="movie-card" onClick={onDetailsPreview}>
                 <div className="movie-card__img movie-card__action-menu">
-                    <img width="320" height="460" src={movie.imageSrc} onClick={closeMovieActionMenu}></img>
+                    <img width="320" height="460" src={movie.poster_path} onClick={closeMovieActionMenu}></img>
 
                     <MovieActionsMenu
                         toggleMovieActionMenu={toggleMovieActionMenu}
@@ -58,20 +58,20 @@ const MovieCard = ({ movie }) => {
                         <p className="movie-card__genre">{movie.genres.join(', ')}</p>
                     </div>
                     <div className="movie-card__chip">
-                        <p className="movie-card__year">{new Date(movie.year).getFullYear()}</p>
+                        <p className="movie-card__year">{new Date(movie.release_date).getFullYear()}</p>
                     </div>
                 </div>
             </div>
-
+{/* 
             <MovieEdit movie={movie} show={isMovieEditModalShow} handleClose={toggleMovieEditModal} />
-            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} />
+            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} /> */}
         </>
     )
 }
 
 MovieCard.propTypes = {
     id: PropTypes.string,
-    imageSrc: PropTypes.string,
+    poster_path: PropTypes.string,
     title: PropTypes.string,
     genre: PropTypes.string,
     year: PropTypes.string
