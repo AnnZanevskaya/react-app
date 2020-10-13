@@ -6,26 +6,13 @@ import {
     SET_SORTORDER,
     SHOW_LOADER
 } from './types';
+
 import * as MovieService from '../Services/movie-service';
 
 export function addMovie(movie) {
     return {
         type: ADD_MOVIE,
         payload: movie
-    }
-}
-
-export function setFilter(genre){
-    return {
-        type: SET_FILTER,
-        payload: genre
-    }
-}
-
-export function setSortOrder(sortOrder){
-    return {
-        type: SET_SORTORDER,
-        payload: sortOrder
     }
 }
 
@@ -53,5 +40,19 @@ export function showLoader() {
 export function hideLoader() {
     return {
         type: HIDE_LOADER
+    }
+}
+
+export function setFilter(genre){
+    return {
+        type: SET_FILTER,
+        payload: genre
+    }
+}
+
+export function setSortOrder(sortOrder){
+    return {
+        type: SET_SORTORDER,
+        payload: sortOrder
     }
 }

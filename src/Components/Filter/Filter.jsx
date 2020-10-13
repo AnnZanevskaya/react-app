@@ -32,8 +32,8 @@ const Filter = ({sortOrder, search}) => {
 
 const mapStateToProps = state => {
     return {
-        sortOrder: state.movies.sortOrder,
-        search: state.movies.search
+        sortOrder: state.searchParams.sortOrder,
+        search: state.searchParams.search
     };
 };
 

@@ -29,8 +29,8 @@ const Sort = ({ filter,  search}) => {
 
 const mapStateToProps = state => {
     return {
-        filter: state.movies.genre,
-        search: state.movies.search
+        filter: state.searchParams.genre,
+        search: state.searchParams.search
     };
 };
 
