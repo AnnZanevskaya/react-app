@@ -13,13 +13,11 @@ export function addMovie(movie) {
     }
 }
 
-export function fetchMovies() {
+export function fetchMovies(search = "", filter = "all", sortBy = "release_date") {
     return async dispatch => {
         dispatch(showLoader());
 
-        const movies = await MovieService.getAllMovies();
-        console.log('fetch');
-        console.log(movies);
+        const movies = await MovieService.getMovies(search, filter, sortBy);
 
         dispatch({
             type: FETCH_MOVIES,

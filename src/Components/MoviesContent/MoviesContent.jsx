@@ -20,9 +20,9 @@ const MoviesContent = () => {
     }, []);
 
     if (loading) {
-        return (
-            <p>Loading...</p>
-        )
+        // return (
+        //     <p>Loading...</p>
+        // )
     }
 
     return (

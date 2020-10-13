@@ -26,3 +26,17 @@ export async function getAllMovies() {
 
     return movies;
 }
+
+export async function getMovies(search, filter, sortBy) {
+    const searchBy = "title";
+    const sortOrder = "desc";
+    const limit = 9;
+
+    const searchParams = search ? `&search=${search}&searchBy=${searchBy}` : "";
+    const filterParams = filter !== "all" ? `&filter=${filter}` : "";
+
+    const resourceUrl = `${movieServiceUrl}movies?sortOrder=${sortOrder}&limit=${limit}${searchParams}${filterParams}&sortBy=${sortBy}`;
+    const movies = await sendRequest(resourceUrl, 'GET');
+
+    return movies;
+}

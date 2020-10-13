@@ -53,7 +53,7 @@ const MovieCard = ({ movie }) => {
                         deleteAction={toggleMovieDeleteModal} />
                 </div>
                 <div className="movie-card__info">
-                    <div>
+                    <div className="movie-card__body">
                         <p className="movie-card__desc">{movie.title}</p>
                         <p className="movie-card__genre">{movie.genres.join(', ')}</p>
                     </div>

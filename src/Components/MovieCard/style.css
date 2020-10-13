@@ -1,5 +1,6 @@
 .movie-card {
     position: relative;
+    width: 320px;
 }
 
 .movie-card__action-menu {
@@ -8,6 +9,10 @@
 
 .movie-card__action-menu:hover .action-menu__container{
     display: inline-block;
+}
+
+.movie-card__body{
+    width: 80%;
 }
 
 .action-menu__container {
