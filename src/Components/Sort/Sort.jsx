@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 
-import { fetchMovies } from "../../Redux/actions";
+import { fetchMovies, setSortOrder } from "../../Redux/actions";
 
 import './style.css';
 
-const Sort = () => {
+const Sort = ({ filter,  search}) => {
     const dispatch = useDispatch();
     const [activeItem, setActiveItem] = useState('release_data');
 
     function handleChange(event) {
-        console.log(event.target);
-        dispatch(fetchMovies("", "all", event.target.value))
+        dispatch(setSortOrder(event.target.value));
+
+        dispatch(fetchMovies(search, filter, event.target.value))
         setActiveItem(event.target.value);
-        console.log(activeItem);
     }
 
     return (
@@ -27,4 +27,11 @@ const Sort = () => {
     )
 };
 
-export default Sort;
+const mapStateToProps = state => {
+    return {
+        filter: state.movies.genre,
+        search: state.movies.search
+    };
+};
+
+export default connect(mapStateToProps, null)(Sort);

@@ -2,6 +2,8 @@ import {
     ADD_MOVIE,
     FETCH_MOVIES,
     HIDE_LOADER,
+    SET_FILTER,
+    SET_SORTORDER,
     SHOW_LOADER
 } from './types';
 import * as MovieService from '../Services/movie-service';
@@ -10,6 +12,20 @@ export function addMovie(movie) {
     return {
         type: ADD_MOVIE,
         payload: movie
+    }
+}
+
+export function setFilter(genre){
+    return {
+        type: SET_FILTER,
+        payload: genre
+    }
+}
+
+export function setSortOrder(sortOrder){
+    return {
+        type: SET_SORTORDER,
+        payload: sortOrder
     }
 }
 

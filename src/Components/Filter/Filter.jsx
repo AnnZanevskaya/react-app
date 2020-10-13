@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 
-import { fetchMovies } from "../../Redux/actions";
+import { fetchMovies, setFilter } from "../../Redux/actions";
 
 const genres = ['all', 'documentary', 'comedy', 'horror', 'crime']
 
-const Filter = () => {
+const Filter = ({sortOrder, search}) => {
     const dispatch = useDispatch();
     const [activeItem, setActiveItem] = useState('all');
 
     const filterByGenres = (genre) => {
-        dispatch(fetchMovies("", genre))
+        dispatch(setFilter(genre));
+        dispatch(fetchMovies(search, genre, sortOrder));
         setActiveItem(genre);
     }
 
@@ -29,4 +30,11 @@ const Filter = () => {
     )
 }
 
-export default Filter;
+const mapStateToProps = state => {
+    return {
+        sortOrder: state.movies.sortOrder,
+        search: state.movies.search
+    };
+};
+
+export default connect(mapStateToProps, null)(Filter);
