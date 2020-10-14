@@ -1,5 +1,6 @@
 import {
     ADD_MOVIE,
+    DELETE_MOVIE,
     FETCH_MOVIES,
     HIDE_LOADER,
     SET_FILTER,
@@ -10,9 +11,24 @@ import {
 import * as MovieService from '../Services/movie-service';
 
 export function addMovie(movie) {
-    return {
-        type: ADD_MOVIE,
-        payload: movie
+    return async dispatch => {
+        await MovieService.createMovie(movie);
+
+        dispatch({
+            type: ADD_MOVIE,
+            payload: movie
+        })
+    }
+}
+
+export function deleteMovie(movieId) {
+    return async dispatch => {
+        await MovieService.deleteMovie(movieId);
+
+        dispatch({
+            type: DELETE_MOVIE,
+            payload: movieId
+        })
     }
 }
 
@@ -43,14 +59,14 @@ export function hideLoader() {
     }
 }
 
-export function setFilter(genre){
+export function setFilter(genre) {
     return {
         type: SET_FILTER,
         payload: genre
     }
 }
 
-export function setSortOrder(sortOrder){
+export function setSortOrder(sortOrder) {
     return {
         type: SET_SORTORDER,
         payload: sortOrder

@@ -6,7 +6,6 @@ import Filter from "../Filter";
 import Sort from "../Sort";
 import MovieList from "../MovieList";
 import ErrorBoundary from "../ErrorBoundary";
-import * as MovieService from "../../Services/movie-service";
 import { fetchMovies } from "../../Redux/actions";
 
 const MoviesContent = () => {

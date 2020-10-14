@@ -64,7 +64,7 @@ const MovieCard = ({ movie }) => {
             </div>
 
             <MovieEdit movie={movie} show={isMovieEditModalShow} handleClose={toggleMovieEditModal} />
-            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} />
+            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} movieId={movie.id} />
         </>
     )
 }

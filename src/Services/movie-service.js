@@ -40,3 +40,13 @@ export async function getMovies(search, filter, sortBy) {
 
     return movies;
 }
+
+export async function createMovie(movie) {
+    const resourceUrl = `${movieServiceUrl}movies`;
+    await sendRequest(resourceUrl, 'POST', movie);
+}
+
+export async function deleteMovie(movieId) {
+    const resourceUrl = `${movieServiceUrl}movies/${movieId}`;
+    await sendRequest(resourceUrl, 'DELETE');
+}
