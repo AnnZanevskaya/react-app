@@ -1,6 +1,7 @@
 import {
     ADD_MOVIE,
     DELETE_MOVIE,
+    UPDATE_MOVIE,
     FETCH_MOVIES,
     HIDE_LOADER,
     SET_FILTER,
@@ -28,6 +29,17 @@ export function deleteMovie(movieId) {
         dispatch({
             type: DELETE_MOVIE,
             payload: movieId
+        })
+    }
+}
+
+export function updateMovie(movie) {
+    return async dispatch => {
+        await MovieService.updateMovie(movie);
+
+        dispatch({
+            type: UPDATE_MOVIE,
+            payload: movie
         })
     }
 }

@@ -46,6 +46,11 @@ export async function createMovie(movie) {
     await sendRequest(resourceUrl, 'POST', movie);
 }
 
+export async function updateMovie(movie) {
+    const resourceUrl = `${movieServiceUrl}movies`;
+    await sendRequest(resourceUrl, 'PUT', movie);
+}
+
 export async function deleteMovie(movieId) {
     const resourceUrl = `${movieServiceUrl}movies/${movieId}`;
     await sendRequest(resourceUrl, 'DELETE');

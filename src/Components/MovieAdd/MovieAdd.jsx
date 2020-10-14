@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 
 import Modal from '../Modal';
 import Input from '../Input';
@@ -24,7 +24,8 @@ const MovieAdd = () => {
 
     function onSubmit(e) {
         e.preventDefault();
-        dispatch(addMovie(movieItem))
+        dispatch(addMovie(movieItem));
+        toggle();
     }
 
     function handleChange(prop, value, type) {
