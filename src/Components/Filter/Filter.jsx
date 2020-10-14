@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, connect } from 'react-redux';
 
-const Filter = () => (
-    <div className="content__filter">
-        <ul className="filter">
-            <li className="filter__item filter__item_active">all</li>
-            <li className="filter__item">documentary</li>
-            <li className="filter__item">comedy</li>
-            <li className="filter__item">horror</li>
-            <li className="filter__item">crime</li>
-        </ul>
-    </div>
-)
+import { fetchMovies, setFilter } from "../../Redux/actions";
+import { filters } from "../../Constants/constants";
 
-export default Filter;
+const Filter = ({sortOrder, search}) => {
+    const dispatch = useDispatch();
+    const [activeItem, setActiveItem] = useState('all');
+
+    const filterByGenres = (genre) => {
+        dispatch(setFilter(genre));
+        dispatch(fetchMovies(search, genre, sortOrder));
+        setActiveItem(genre);
+    }
+
+    return (
+        <div className="content__filter">
+            <ul className="filter">
+                {filters.map((genre) => {
+                    const activeClass = activeItem === genre ? 'filter__item_active' : '';
+
+                    return (
+                        <li key={genre} onClick={() => filterByGenres(genre)} className={`filter__item ${activeClass}`}>{genre}</li>
+                    )
+                })}
+            </ul>
+        </div>
+    )
+}
+
+const mapStateToProps = state => {
+    return {
+        sortOrder: state.searchParams.sortOrder,
+        search: state.searchParams.search
+    };
+};
+
+export default connect(mapStateToProps, null)(Filter);

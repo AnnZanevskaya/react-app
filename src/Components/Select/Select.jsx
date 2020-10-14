@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import MultiSelect from 'react-multi-select-component';
 import './style.css';
 
-const Select = ({ name, label, options, preselected }) => {
+const Select = ({ name, label, options, preselected, onSelectChange }) => {
     const [selected, setSelected] = useState(preselected || []);
 
     const onChange = (selectedElements) => {
         setSelected(selectedElements);
+        onSelectChange('genres', selectedElements.map((el) => el.value));
     };
 
     return (

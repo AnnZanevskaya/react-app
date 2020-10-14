@@ -1,18 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Wrapper from "../Wrapper";
 import Filter from "../Filter";
 import Sort from "../Sort";
 import MovieList from "../MovieList";
 import ErrorBoundary from "../ErrorBoundary";
-import * as MovieService from "../../Services/movie-service";
+import { fetchMovies } from "../../Redux/actions";
 
 const MoviesContent = () => {
-    const [movies, setMovies] = useState([]);
+    const dispatch = useDispatch();
+    const movies = useSelector(state => state.movies.fetchedMovies);
+    const loading = useSelector(state => state.app.loading);
 
     useEffect(() => {
-        setMovies(MovieService.getAllMovies());
-    })
+        dispatch(fetchMovies());
+    }, []);
+
+    if (loading) {
+       
+    }
 
     return (
         <div className="content">

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
+  "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
@@ -66,5 +66,9 @@
   "bugs": {
     "url": "https://github.com/AnnZanevskaya/react/issues"
   },
-  "homepage": "https://github.com/AnnZanevskaya/react#readme"
+  "homepage": "https://github.com/AnnZanevskaya/react#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "redux-thunk": "^2.3.0"
+  }
 }
