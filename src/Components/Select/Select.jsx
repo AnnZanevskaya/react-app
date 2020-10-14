@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MultiSelect from 'react-multi-select-component';
 import './style.css';
 
-const Select = ({ name, label, options, preselected, onSelectChange }) => {
+const Select = ({ name, label, options, preselected,validationError, onSelectChange }) => {
     const [selected, setSelected] = useState(preselected || []);
 
     const onChange = (selectedElements) => {
@@ -23,6 +23,7 @@ const Select = ({ name, label, options, preselected, onSelectChange }) => {
                 disableSearch={true}
                 hasSelectAll={false} 
                 overrideStrings={{"selectSomeItems": "Select Genre"}}/>
+                <span className="error-message">{validationError}</span>
         </div>
     );
 }
