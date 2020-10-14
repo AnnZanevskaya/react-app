@@ -14,9 +14,9 @@ const MovieEdit = ({ movie, show, handleClose }) => {
                 <h2 className="description">Edit Movie</h2>
                 <Input name="id" type="text" label="Movie Id" value={movie.id} />
                 <Input name="title" type="text" label="Title" placeholder="Title here" value={movie.title} />
-                <Input name="releaseDate" type="date" label="Release Date" placeholder="Select Date" value={movie.year} />
-                <Input name="movieUrl" type="text" label="Movie URL" placeholder="Movie URL here" value={movie.imageSrc} />
-                <Input name="overview" type="text" label="Overview" placeholder="Overview here" value={movie.description} />
+                <Input name="releaseDate" type="date" label="Release Date" placeholder="Select Date" value={movie.release_date} />
+                <Input name="movieUrl" type="text" label="Movie URL" placeholder="Movie URL here" value={movie.poster_path} />
+                <Input name="overview" type="text" label="Overview" placeholder="Overview here" value={movie.overview} />
                 <Select name="genre" type="text" label="Genre" options={genres} preselected={selectedGenres} />
                 <Input name="runtime" type="text" label="Runtime" placeholder="Runtime here" value={movie.runtime} />
 

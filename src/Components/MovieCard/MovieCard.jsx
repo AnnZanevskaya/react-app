@@ -62,9 +62,9 @@ const MovieCard = ({ movie }) => {
                     </div>
                 </div>
             </div>
-{/* 
+
             <MovieEdit movie={movie} show={isMovieEditModalShow} handleClose={toggleMovieEditModal} />
-            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} /> */}
+            <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} />
         </>
     )
 }
