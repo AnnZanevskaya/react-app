@@ -17,7 +17,6 @@ const MovieCard = ({ movie }) => {
         onMovieDetails,
     ]);
 
-
     const [isMovieActionMenuShow, setIsShowing] = useToggle();
     const [isMovieEditModalShow, setIsShowingEditModal] = useToggle();
     const [isMovieDeleteModalShow, setIsShowingDeleteModal] = useToggle();

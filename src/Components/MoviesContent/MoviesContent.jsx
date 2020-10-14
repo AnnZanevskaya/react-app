@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, userSelector, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Wrapper from "../Wrapper";
 import Filter from "../Filter";
@@ -10,7 +10,6 @@ import { fetchMovies } from "../../Redux/actions";
 
 const MoviesContent = () => {
     const dispatch = useDispatch();
-    // const [movies, setMovies] = useState([]);
     const movies = useSelector(state => state.movies.fetchedMovies);
     const loading = useSelector(state => state.app.loading);
 
@@ -19,9 +18,7 @@ const MoviesContent = () => {
     }, []);
 
     if (loading) {
-        // return (
-        //     <p>Loading...</p>
-        // )
+       
     }
 
     return (

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, connect } from 'react-redux';
 
 import { fetchMovies, setFilter } from "../../Redux/actions";
-
-const genres = ['all', 'documentary', 'comedy', 'horror', 'crime']
+import { filters } from "../../Constants/constants";
 
 const Filter = ({sortOrder, search}) => {
     const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const Filter = ({sortOrder, search}) => {
     return (
         <div className="content__filter">
             <ul className="filter">
-                {genres.map((genre) => {
+                {filters.map((genre) => {
                     const activeClass = activeItem === genre ? 'filter__item_active' : '';
 
                     return (
