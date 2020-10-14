@@ -13,11 +13,11 @@ import * as MovieService from '../Services/movie-service';
 
 export function addMovie(movie) {
     return async dispatch => {
-        await MovieService.createMovie(movie);
+       const result = await MovieService.createMovie(movie);
 
         dispatch({
             type: ADD_MOVIE,
-            payload: movie
+            payload: result
         })
     }
 }

@@ -14,7 +14,7 @@ async function sendRequest(resourceUrl, method, requestBody = null) {
             data: requestBody
         })
         .then((response) => {
-            result = response.data.data;
+            result = (response.data.data) ? response.data.data : response.data;
         });
 
     return result;
@@ -43,7 +43,9 @@ export async function getMovies(search, filter, sortBy) {
 
 export async function createMovie(movie) {
     const resourceUrl = `${movieServiceUrl}movies`;
-    await sendRequest(resourceUrl, 'POST', movie);
+    const result = await sendRequest(resourceUrl, 'POST', movie);
+   
+    return result;
 }
 
 export async function updateMovie(movie) {
