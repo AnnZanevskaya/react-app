@@ -47,7 +47,10 @@
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "axios": "^0.20.0",
+    "formik": "^2.2.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "style": "sass --watch src/sass/style.scss src/sass/style.css",
@@ -66,11 +69,5 @@
   "bugs": {
     "url": "https://github.com/AnnZanevskaya/react/issues"
   },
-  "homepage": "https://github.com/AnnZanevskaya/react#readme",
-  "dependencies": {
-    "axios": "^0.20.0",
-    "formik": "^2.2.0",
-    "redux-thunk": "^2.3.0",
-    "yup": "^0.29.3"
-  }
+  "homepage": "https://github.com/AnnZanevskaya/react#readme"
 }
