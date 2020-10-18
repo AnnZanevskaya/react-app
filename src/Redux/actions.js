@@ -6,7 +6,8 @@ import {
     HIDE_LOADER,
     SET_FILTER,
     SET_SORTORDER,
-    SHOW_LOADER
+    SHOW_LOADER, 
+    SET_SEARCH
 } from './types';
 
 import * as MovieService from '../Services/movie-service';
@@ -82,5 +83,12 @@ export function setSortOrder(sortOrder) {
     return {
         type: SET_SORTORDER,
         payload: sortOrder
+    }
+}
+
+export function setSearch(search) {
+    return {
+        type: SET_SEARCH,
+        payload: search
     }
 }

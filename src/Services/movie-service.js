@@ -1,7 +1,4 @@
 import axios from 'axios';
-import {
-    movies
-} from "../Constants/constants.js";
 
 const movieServiceUrl = "http://localhost:4000/";
 

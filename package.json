@@ -69,5 +69,8 @@
   "bugs": {
     "url": "https://github.com/AnnZanevskaya/react/issues"
   },
-  "homepage": "https://github.com/AnnZanevskaya/react#readme"
+  "homepage": "https://github.com/AnnZanevskaya/react#readme",
+  "dependencies": {
+    "react-router-dom": "^5.2.0"
+  }
 }

@@ -1,4 +1,4 @@
-import { SET_FILTER, SET_SORTORDER} from "./types";
+import { SET_FILTER, SET_SORTORDER, SET_SEARCH} from "./types";
 
 const initialState = {
     search: '',
@@ -12,6 +12,9 @@ export const searchReducer = (state = initialState, action)  => {
             return { ...state, genre: action.payload}
         case SET_SORTORDER: 
             return { ...state, sortOrder: action.payload}
+        case SET_SEARCH: {
+            return {...state, search: action.payload}
+        }
         default:
             return state;
     }
