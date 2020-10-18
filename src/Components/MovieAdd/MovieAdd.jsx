@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
 
 import Modal from '../Modal';
 import Input from '../Input';
@@ -7,6 +8,7 @@ import Select from '../Select';
 import { useToggle } from '../../Hooks/hooks';
 import { genres } from '../../Constants/constants';
 import { addMovie } from "../../Redux/actions";
+import { movieValidationSchema } from "../../Validation/validation";
 
 const MovieAdd = () => {
     const [isShow, setIsShowing] = useToggle();
@@ -16,40 +18,38 @@ const MovieAdd = () => {
         title: "", release_date: null, poster_path: '', overview: '', genres: [], runtime: 0
     }
 
-    const [movieItem, setMovieItem] = useState(movie);
+    const formik = useFormik({
+        initialValues: movie,
+        validate: movieValidationSchema,
+        onSubmit: handleSubmit
+    });
 
     function toggle() {
         setIsShowing();
     }
 
-    function onSubmit(e) {
-        e.preventDefault();
-        dispatch(addMovie(movieItem));
+    function handleSubmit() {
+        dispatch(addMovie(formik.values));
         toggle();
     }
 
-    function handleChange(prop, value, type) {
-        if (type === "number")
-            value = +value;
-
-        setMovieItem((movie) => ({ ...movie, [prop]: value }));
-    }
+    const selectedGenres = formik.values.genres.map((elem) => { return { label: elem, value: elem } });
 
     return (
         <>
             <Modal show={isShow} handleClose={toggle}>
-                <form>
+                <form onSubmit={(e) => { formik.handleSubmit(); e.preventDefault(); }}>
                     <h2 className="description">Add Movie</h2>
-                    <Input name="title" type="text" label="Title" placeholder="Title here" value={movieItem.title} onChange={(e) => handleChange('title', e.target.value)} />
-                    <Input name="releaseDate" type="date" label="Release Date" placeholder="Select Date" value={movieItem.release_date} onChange={(e) => handleChange('release_date', e.target.value)} />
-                    <Input name="movieUrl" type="text" label="Movie URL" placeholder="Movie URL here" value={movieItem.poster_path} onChange={(e) => handleChange('poster_path', e.target.value)} />
-                    <Input name="overview" type="text" label="Overview" placeholder="Overview here" value={movieItem.overview} onChange={(e) => handleChange('overview', e.target.value)} />
-                    <Select name="genre" type="text" label="Genre" options={genres} preselected={[]} onSelectChange={handleChange} />
-                    <Input name="runtime" type="text" label="Runtime" placeholder="Runtime here" value={movieItem.runtime} onChange={(e) => handleChange('runtime', e.target.value, "number")} />
+                    <Input name="title" type="text" label="Title" placeholder="Title here" value={formik.values.title} onChange={formik.handleChange} validationError={formik.errors.title} />
+                    <Input name="release_date" type="date" label="Release Date" placeholder="Select Date" value={formik.values.release_date} onChange={formik.handleChange} validationError={formik.errors.release_date} />
+                    <Input name="poster_path" type="text" label="Movie URL" placeholder="Movie Url here" value={formik.values.poster_path} onChange={formik.handleChange} validationError={formik.errors.poster_path} />
+                    <Input name="overview" type="text" label="Overview" placeholder="Overview here" value={formik.values.overview} onChange={formik.handleChange} validationError={formik.errors.overview} />
+                    <Select name="genre" type="text" label="Genre" options={genres} preselected={selectedGenres} onSelectChange={formik.setFieldValue} validationError={formik.errors.genres} />
+                    <Input name="runtime" type="number" label="Runtime" placeholder="Runtime here" value={formik.values.runtime} onChange={formik.handleChange} validationError={formik.errors.runtime} />
 
                     <div className="modal__buttons">
                         <button className="header__button button button-bordered">RESET</button>
-                        <button onClick={(e) => onSubmit(e)} className="header__button button button-red">SUBMIT</button>
+                        <button className="header__button button button-red">SUBMIT</button>
                     </div>
                 </form>
             </Modal>
