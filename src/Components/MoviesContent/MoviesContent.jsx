@@ -6,7 +6,7 @@ import Filter from "../Filter";
 import Sort from "../Sort";
 import MovieList from "../MovieList";
 import ErrorBoundary from "../ErrorBoundary";
-import { fetchMovies } from "../../Redux/actions";
+import { fetchMovies, setSearch } from "../../Redux/actions";
 
 import {
     BrowserRouter as Router,
@@ -28,14 +28,16 @@ const MoviesContent = () => {
 
     let searchQuery = "";
 
-    if (route === "search") {
+    if (route === "/search") {
         const query = useQuery();
         searchQuery = query.get("q");
+
+        dispatch(setSearch(searchQuery));
     }
 
     useEffect(() => {
         dispatch(fetchMovies(searchQuery));
-    }, []);
+    }, [searchQuery]);
 
     return (
         <div className="content">
