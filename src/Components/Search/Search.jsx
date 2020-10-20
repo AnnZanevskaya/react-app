@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, connect } from 'react-redux';
-import { fetchMovies, setSearch } from "../../Redux/actions";
+import {  connect } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 
-const Search = ({ sortOrder, filter }) => {
-    const dispatch = useDispatch();
+const Search = ({ searchQ }) => {
     const history = useHistory();
-    const [searchPhrase, setSearchPhrase] = useState('');
+    const [searchPhrase, setSearchPhrase] = useState(searchQ);
 
     const handleChange = event => {
         setSearchPhrase(event.target.value);
@@ -34,7 +32,8 @@ const Search = ({ sortOrder, filter }) => {
 const mapStateToProps = state => {
     return {
         sortOrder: state.searchParams.sortOrder,
-        filter: state.searchParams.filter
+        filter: state.searchParams.filter,
+        searchQ: state.searchParams.search
     };
 };
 
