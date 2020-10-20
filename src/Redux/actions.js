@@ -47,9 +47,12 @@ export function updateMovie(movie) {
 
 export function fetchMovies(search = "", filter = "all", sortBy = "release_date") {
     return async dispatch => {
+        let movies = [];
         dispatch(showLoader());
 
-        const movies = await MovieService.getMovies(search, filter, sortBy);
+        if(search){
+            movies = await MovieService.getMovies(search, filter, sortBy);
+        }
 
         dispatch({
             type: FETCH_MOVIES,

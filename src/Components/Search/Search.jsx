@@ -12,7 +12,6 @@ const Search = ({ sortOrder, filter }) => {
     };
 
     const search = () => {
-        console.log(searchPhrase);
         dispatch(setSearch(searchPhrase));
         dispatch(fetchMovies(searchPhrase, filter, sortOrder));
     }

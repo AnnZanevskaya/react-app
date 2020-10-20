@@ -5,6 +5,7 @@ import MoviesContent from "../../Components/MoviesContent";
 import Footer from "../../Components/Footer";
 import HeaderContext from "../../Providers/HeaderContext";
 
+
 export default function HomePage() {
   const [movie, setDetails] = useState();
 

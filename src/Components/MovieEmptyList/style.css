@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.description{
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 400;
+}
