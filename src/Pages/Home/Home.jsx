@@ -18,9 +18,8 @@ function HomePage() {
   if (route === "/search") {
     const query = useQuery();
     searchQuery = query.get("q");
+    dispatch(setSearch(searchQuery));
   }
-
-  dispatch(setSearch(searchQuery));
 
   if (route.includes("/film")) {
     const { id } = useParams();
