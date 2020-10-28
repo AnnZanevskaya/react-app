@@ -7,17 +7,13 @@ import { setSearch, getMovie } from "../../Redux/actions";
 import { useLocation, useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-
-
 function HomePage() {
   const dispatch = useDispatch();
   const route = useLocation().pathname;
 
-  let searchQuery = "";
-
   if (route === "/search") {
     const query = useQuery();
-    searchQuery = query.get("q");
+    const searchQuery = query.get("q");
     dispatch(setSearch(searchQuery));
   }
 
