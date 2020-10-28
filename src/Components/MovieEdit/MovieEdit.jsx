@@ -30,7 +30,7 @@ const MovieEdit = ({ movie, show, handleClose }) => {
             <Modal show={show} handleClose={handleClose}>
                 <form onSubmit={(e) => { formik.handleSubmit(); e.preventDefault(); }}>
                     <h2 className="description">Edit Movie</h2>
-                    <Input name="id" type="text" label="Movie Id" value={movie.id} />
+                    <Input name="id" type="text" label="Movie Id" value={movie.id}/>
                     <Input name="title" type="text" label="Title" placeholder="Title here" value={formik.values.title} onChange={formik.handleChange} validationError={formik.errors.title} />
                     <Input name="release_date" type="date" label="Release Date" placeholder="Select Date" value={formik.values.release_date} onChange={formik.handleChange} validationError={formik.errors.release_date} />
                     <Input name="poster_path" type="text" label="Movie URL" placeholder="Movie Url here" value={formik.values.poster_path} onChange={formik.handleChange} validationError={formik.errors.poster_path} />

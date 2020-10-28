@@ -1,9 +1,8 @@
 import React from 'react';
 
 const Input = ({ name, type, label, value, placeholder, validationError, onChange }) => {
-    if (value)
-        value = "";
-        
+    if (!onChange)
+        onChange = () => { };
     return (
         <div className="input__container">
             <label className="label">
