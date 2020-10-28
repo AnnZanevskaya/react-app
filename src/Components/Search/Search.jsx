@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {  connect } from 'react-redux';
-import {useHistory} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 const Search = ({ searchQ }) => {

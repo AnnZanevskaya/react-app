@@ -1,9 +1,25 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 
-const Logo = () => (
-    <h1 className="logo">
-        <span className="logo-bold">netflix</span>roulette
-    </h1>
-);
+import { setSearch } from "../../Redux/actions";
+
+import './style.css';
+
+const Logo = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    function redirectToDefault() {
+        dispatch(setSearch(""));
+        history.push('/');
+    }
+
+    return (
+        <h1 className="logo" onClick={() => redirectToDefault()}>
+            <span className="logo-bold">netflix</span>roulette
+        </h1>
+    )
+};
 
 export default Logo

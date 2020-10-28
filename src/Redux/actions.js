@@ -6,15 +6,31 @@ import {
     HIDE_LOADER,
     SET_FILTER,
     SET_SORTORDER,
-    SHOW_LOADER, 
-    SET_SEARCH
+    SHOW_LOADER,
+    SET_SEARCH,
+    GET_MOVIE
 } from './types';
 
 import * as MovieService from '../Services/movie-service';
 
+export function getMovie(id) {
+    return async dispatch => {
+        let result = null;
+
+        if (id) {
+            result = await MovieService.getMovie(id);
+        }
+
+        dispatch({
+            type: GET_MOVIE,
+            payload: result
+        })
+    }
+}
+
 export function addMovie(movie) {
     return async dispatch => {
-       const result = await MovieService.createMovie(movie);
+        const result = await MovieService.createMovie(movie);
 
         dispatch({
             type: ADD_MOVIE,
@@ -50,7 +66,7 @@ export function fetchMovies(search = "", filter = "all", sortBy = "release_date"
         let movies = [];
         dispatch(showLoader());
 
-        if(search){
+        if (search) {
             movies = await MovieService.getMovies(search, filter, sortBy);
         }
 

@@ -38,10 +38,24 @@ export async function getMovies(search, filter, sortBy) {
     return movies;
 }
 
+export async function getMovie(id) {
+    const resourceUrl = `${movieServiceUrl}movies/${id}`;
+    let result = null;
+    try {
+        result = await sendRequest(resourceUrl, 'GET');
+
+    } catch (e) {
+        console.log(`Could not find movie with id: ${id}`);
+        result = undefined;
+    }
+
+    return result;
+}
+
 export async function createMovie(movie) {
     const resourceUrl = `${movieServiceUrl}movies`;
     const result = await sendRequest(resourceUrl, 'POST', movie);
-   
+
     return result;
 }
 

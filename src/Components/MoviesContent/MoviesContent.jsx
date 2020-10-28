@@ -6,7 +6,7 @@ import Filter from "../Filter";
 import Sort from "../Sort";
 import MovieList from "../MovieList";
 import ErrorBoundary from "../ErrorBoundary";
-import { fetchMovies, setSearch } from "../../Redux/actions";
+import { fetchMovies } from "../../Redux/actions";
 
 import MovieEmptyList from "../MovieEmptyList";
 
@@ -16,7 +16,7 @@ const MoviesContent = ({sortOrder,filter, searchQuery}) => {
   
     useEffect(() => {
         dispatch(fetchMovies(searchQuery, filter, sortOrder));
-    }, [searchQuery]);
+    }, [searchQuery, filter, sortOrder]);
 
     return (
         <div className="content">

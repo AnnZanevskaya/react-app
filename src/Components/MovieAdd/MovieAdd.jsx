@@ -15,7 +15,7 @@ const MovieAdd = () => {
     const dispatch = useDispatch();
 
     let movie = {
-        title: "", release_date: null, poster_path: '', overview: '', genres: [], runtime: 0
+        title: "", release_date: '', poster_path: '', overview: '', genres: [], runtime: 0
     }
 
     const formik = useFormik({
