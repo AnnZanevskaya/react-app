@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, connect } from "react-redux";
 
 import Wrapper from "../Wrapper";
 import Filter from "../Filter";
@@ -8,18 +8,15 @@ import MovieList from "../MovieList";
 import ErrorBoundary from "../ErrorBoundary";
 import { fetchMovies } from "../../Redux/actions";
 
-const MoviesContent = () => {
+import MovieEmptyList from "../MovieEmptyList";
+
+const MoviesContent = ({sortOrder,filter, searchQuery}) => {
     const dispatch = useDispatch();
     const movies = useSelector(state => state.movies.fetchedMovies);
-    const loading = useSelector(state => state.app.loading);
-
+  
     useEffect(() => {
-        dispatch(fetchMovies());
-    }, []);
-
-    if (loading) {
-       
-    }
+        dispatch(fetchMovies(searchQuery, filter, sortOrder));
+    }, [searchQuery, filter, sortOrder]);
 
     return (
         <div className="content">
@@ -30,11 +27,19 @@ const MoviesContent = () => {
                 </div>
 
                 <ErrorBoundary>
-                    <MovieList movies={movies} />
+                    {(!movies || movies.length === 0) ? <MovieEmptyList /> : <MovieList movies={movies} />}
                 </ErrorBoundary>
             </Wrapper>
         </div >
     )
 };
 
-export default MoviesContent;
+const mapStateToProps = state => {
+    return {
+        sortOrder: state.searchParams.sortOrder,
+        filter: state.searchParams.filter,
+        searchQuery: state.searchParams.search
+    };
+};
+
+export default connect(mapStateToProps, null)(MoviesContent);

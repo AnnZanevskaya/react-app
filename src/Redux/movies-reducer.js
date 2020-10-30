@@ -1,11 +1,14 @@
-import { FETCH_MOVIES, ADD_MOVIE, DELETE_MOVIE,UPDATE_MOVIE } from "./types";
+import { FETCH_MOVIES, ADD_MOVIE, DELETE_MOVIE,UPDATE_MOVIE, GET_MOVIE } from "./types";
 
 const initialState = {
-    fetchedMovies: []
+    fetchedMovies: [],
+    movie: null
 }
 
 export const moviesReducer = (state = initialState, action)  => {
     switch(action.type){
+        case GET_MOVIE: 
+            return { ...state, movie: action.payload} 
         case ADD_MOVIE:
             return {...state, fetchedMovies: state.fetchedMovies.concat([action.payload])}
         case DELETE_MOVIE:

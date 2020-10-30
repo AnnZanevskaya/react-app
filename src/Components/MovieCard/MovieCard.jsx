@@ -1,21 +1,16 @@
-import React, { useState, useCallback, useContext } from "react";
-import PropTypes, { func } from 'prop-types';
+import React from "react";
 
 import MovieActionsMenu from '../MovieActionsMenu';
 import MovieEdit from '../MovieEdit';
 import MovieDelete from '../MovieDelete';
 import { useToggle } from '../../Hooks/hooks';
+import {useHistory} from 'react-router-dom';
+
 
 import './style.css';
-import HeaderContext from "../../Providers/HeaderContext";
 
 const MovieCard = ({ movie }) => {
-    const { onMovieDetails } = useContext(HeaderContext);
-
-    const onDetailsPreview = useCallback(() => onMovieDetails(movie), [
-        movie,
-        onMovieDetails,
-    ]);
+    const history = useHistory();
 
     const [isMovieActionMenuShow, setIsShowing] = useToggle();
     const [isMovieEditModalShow, setIsShowingEditModal] = useToggle();
@@ -39,9 +34,13 @@ const MovieCard = ({ movie }) => {
         closeMovieActionMenu();
     }
 
+    function onDetailsPreview(id){
+        history.push(`/film/${id}`);
+    }
+
     return (
         <>
-            <div className="movie-card" onClick={onDetailsPreview}>
+            <div className="movie-card" onClick={() => onDetailsPreview(movie.id)}>
                 <div className="movie-card__img movie-card__action-menu">
                     <img width="320" height="460" src={movie.poster_path} onClick={closeMovieActionMenu}></img>
 
@@ -66,19 +65,6 @@ const MovieCard = ({ movie }) => {
             <MovieDelete show={isMovieDeleteModalShow} handleClose={toggleMovieDeleteModal} movieId={movie.id} />
         </>
     )
-}
-
-MovieCard.propTypes = {
-    id: PropTypes.string,
-    poster_path: PropTypes.string,
-    title: PropTypes.string,
-    genre: PropTypes.string,
-    year: PropTypes.string
-}
-
-MovieCard.defaultProps = {
-    imageSrc: "https://underscoremusic.co.uk/site/wp-content/uploads/2014/05/no-poster.jpg",
-    year: "N/A"
 }
 
 export default MovieCard;

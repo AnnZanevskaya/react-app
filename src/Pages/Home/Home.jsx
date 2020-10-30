@@ -1,34 +1,46 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React from "react";
 
 import Header from "../../Components/Header";
 import MoviesContent from "../../Components/MoviesContent";
 import Footer from "../../Components/Footer";
-import HeaderContext from "../../Providers/HeaderContext";
+import { setSearch, getMovie } from "../../Redux/actions";
+import { useLocation, useParams, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function HomePage() {
-  const [movie, setDetails] = useState();
+function HomePage() {
+  const dispatch = useDispatch();
+  const route = useLocation().pathname;
 
-  const onMovieDetails = useCallback(
-    (movie) => {
-      setDetails(movie);
-    },
-    [setDetails]
-  );
+  if (route === "/search") {
+    const query = useQuery();
+    const searchQuery = query.get("q");
+    dispatch(setSearch(searchQuery));
+  }
 
-  const movieDetails = useMemo(
-    () => ({ onMovieDetails }),
-    [onMovieDetails],
-  );
+  if (route.includes("/film")) {
+    const { id } = useParams();
+    dispatch(getMovie(id));
+  }
+
+  const history = useHistory();
+  const search = useSelector(state => state.searchParams.search);
 
   const onMovieDetailsClose = () => {
-    setDetails(null);
+    dispatch(getMovie(null));
+    history.push(`/search?q=${search}`);
+  }
+
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
   }
 
   return (
-    <HeaderContext.Provider value={movieDetails}>
-      <Header movie={movie} onClose={onMovieDetailsClose} />
+    <>
+      <Header onClose={onMovieDetailsClose} />
       <MoviesContent />
       <Footer />
-    </HeaderContext.Provider>
+    </>
   );
 }
+
+export default HomePage;

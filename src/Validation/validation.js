@@ -4,7 +4,7 @@ export const movieValidationSchema = (movie) => {
     if (!movie.title)
         errors.title = 'Required';
 
-    if(!movie.release_date || Object.prototype.toString.call(date) !== "[object Date]" || isNaN(date))
+    if(!movie.release_date )
         errors.release_date = 'Required';
 
     if (!movie.overview)
