@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<h4
+  className="results__description"
+>
+  <span
+    className="results__count"
+  >
+    2
+  </span>
+   movies found
+</h4>
+`;
