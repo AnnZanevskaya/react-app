@@ -19,3 +19,11 @@
 .content__sort {
     display: inline-block;
 }
+
+.notfound-page__content{
+    background-color: #121212;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

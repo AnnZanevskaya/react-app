@@ -1,10 +1,8 @@
 import React from "react";
 
-import './style.css';
-
 const MovieEmptyList = () => (
-    <div className="container">
-        <p className="description">No Movie Found</p>
+    <div className="emptylist__container">
+        <p className="emptylist__description">No Movie Found</p>
     </div>
 );
 

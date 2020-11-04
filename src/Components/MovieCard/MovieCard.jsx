@@ -6,9 +6,6 @@ import MovieDelete from '../MovieDelete';
 import { useToggle } from '../../Hooks/hooks';
 import {useHistory} from 'react-router-dom';
 
-
-import './style.css';
-
 const MovieCard = ({ movie }) => {
     const history = useHistory();
 

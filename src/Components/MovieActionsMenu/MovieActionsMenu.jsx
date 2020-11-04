@@ -1,7 +1,5 @@
 import React from "react";
 
-import './style.css';
-
 const MovieActionsMenu = ({ toggleMovieActionMenu, show, editAction, deleteAction }) => {
     const toggleActionMenu = (e) => {
         e.stopPropagation();

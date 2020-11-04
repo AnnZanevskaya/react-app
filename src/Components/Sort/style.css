@@ -1,9 +1,0 @@
-.sort__select:active, .sort__select:focus {
-    border: none;
-}
-
-.sort__select option {
-    background-color: #232323;
-    color: #f4f7f6;
-    padding: 5px !important;
-}

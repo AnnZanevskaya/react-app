@@ -4,8 +4,6 @@ import { useDispatch } from "react-redux";
 
 import { setSearch } from "../../Redux/actions";
 
-import './style.css';
-
 const Logo = () => {
     const history = useHistory();
     const dispatch = useDispatch();

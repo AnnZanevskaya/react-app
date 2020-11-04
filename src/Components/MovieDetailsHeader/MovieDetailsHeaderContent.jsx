@@ -3,8 +3,6 @@ import React from "react";
 import Logo from '../Logo';
 import MovieDetails from '../MovieDetails';
 
-import './style.css';
-
 const MovieDetailsHeaderContent = ({ movie, onClose }) => {
     return (
         <div className="header__content">

@@ -4,11 +4,9 @@ import Wrapper from "../../Components/Wrapper";
 import Logo from "../../Components/Logo";
 import Footer from "../../Components/Footer";
 
-import './style.css';
-
 export default function NotFound() {
     return (
-        <div className="page__content">
+        <div className="notfound-page__content">
             <Wrapper>
                 <div className="page__body">
                     <Logo />
