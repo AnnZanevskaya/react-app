@@ -35,7 +35,6 @@
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -59,7 +58,8 @@
     "build": "cross-env NODE_ENV=production webpack",
     "watch": "cross-env NODE_ENV=development webpack --watch",
     "start": "cross-env NODE_ENV=development webpack-dev-server --open",
-    "test": "jest --no-cache --coverage"
+    "test": "jest --no-cache --coverage",
+    "next:dev": "next dev"
   },
   "repository": {
     "type": "git",
@@ -75,6 +75,7 @@
   "dependencies": {
     "history": "^5.0.0",
     "identity-obj-proxy": "^3.0.0",
+    "next": "^10.0.1",
     "react-router-dom": "^5.2.0",
     "react-test-renderer": "^17.0.1"
   }
