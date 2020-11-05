@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { useRouter } from 'next/router';
 
 
 const Search = ({ searchQ }) => {
-    const history = useHistory();
     const [searchPhrase, setSearchPhrase] = useState(searchQ);
 
     const handleChange = event => {

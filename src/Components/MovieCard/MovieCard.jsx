@@ -4,10 +4,11 @@ import MovieActionsMenu from '../MovieActionsMenu';
 import MovieEdit from '../MovieEdit';
 import MovieDelete from '../MovieDelete';
 import { useToggle } from '../../Hooks/hooks';
-import {useHistory} from 'react-router-dom';
+import { useRouter } from 'next/router';
+
 
 const MovieCard = ({ movie }) => {
-    const history = useHistory();
+    const router = useRouter();
 
     const [isMovieActionMenuShow, setIsShowing] = useToggle();
     const [isMovieEditModalShow, setIsShowingEditModal] = useToggle();
@@ -32,7 +33,7 @@ const MovieCard = ({ movie }) => {
     }
 
     function onDetailsPreview(id){
-        history.push(`/film/${id}`);
+        router.push(`/film/${id}`);
     }
 
     return (

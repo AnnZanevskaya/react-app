@@ -1,4 +1,5 @@
 import React from 'react';
+import Close from '@material-ui/icons/Close';
 
 const Modal = ({ handleClose, show, children }) => {
     const showHideClassName = show ? "display-block" : "display-none";
@@ -7,7 +8,7 @@ const Modal = ({ handleClose, show, children }) => {
         <div className={`modal__container ${showHideClassName}`}>
             <div className="modal__dialog modal__body">
                 {children}
-                <span className="button-close modal__close material-icons" onClick={handleClose}>close</span>
+                <Close className="button-close modal__close" onClick={handleClose} />
             </div>
         </div>
     );

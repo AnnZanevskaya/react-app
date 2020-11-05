@@ -21,20 +21,15 @@ function HomePage() {
   }
 
   if (route.includes("/film")) {
-    const { id } = route;
+    const { id } = router.query;
     dispatch(getMovie(id));
   }
 
-  const history = useHistory();
   const search = useSelector(state => state.searchParams.search);
 
   const onMovieDetailsClose = () => {
     dispatch(getMovie(null));
-    history.push(`/search?q=${search}`);
-  }
-
-  function useQuery() {
-    return new URLSearchParams(useLocation().search);
+    router.push(`/search?q=${search}`);
   }
 
   return (

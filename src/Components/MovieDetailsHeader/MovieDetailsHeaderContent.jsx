@@ -2,6 +2,8 @@ import React from "react";
 
 import Logo from '../Logo';
 import MovieDetails from '../MovieDetails';
+import Search from '@material-ui/icons/Search';
+
 
 const MovieDetailsHeaderContent = ({ movie, onClose }) => {
     return (
@@ -9,7 +11,7 @@ const MovieDetailsHeaderContent = ({ movie, onClose }) => {
             <div className="header__top">
                 <Logo />
                 <div className="search__container">
-                    <span className="search__icon material-icons" onClick={onClose}>search</span>
+                    <Search className="search__icon" onClick={onClose} />
                 </div>
             </div>
             <MovieDetails movie={movie} />
