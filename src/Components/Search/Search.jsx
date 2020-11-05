@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 
 const Search = ({ searchQ }) => {
@@ -11,8 +12,10 @@ const Search = ({ searchQ }) => {
         setSearchPhrase(event.target.value);
     };
 
+    const router = useRouter();
+
     const search = () => {
-        history.push(`/search?q=${searchPhrase}`);
+        router.push(`/search?q=${searchPhrase}`);
     }
 
     return (
