@@ -8,7 +8,7 @@ const initialState = {
 export const moviesReducer = (state = initialState, action)  => {
     switch(action.type){
         case GET_MOVIE: 
-            return { ...state, movie: action.payload} 
+            return { ...state, movie: action.payload, fetchedMovies: state.fetchedMovies} 
         case ADD_MOVIE:
             return {...state, fetchedMovies: state.fetchedMovies.concat([action.payload])}
         case DELETE_MOVIE:

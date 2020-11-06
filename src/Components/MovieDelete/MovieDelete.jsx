@@ -4,8 +4,6 @@ import { useDispatch } from 'react-redux'
 import Modal from '../Modal';
 import { deleteMovie } from "../../Redux/actions";
 
-import './style.css';
-
 const MovieDelete = ({ show, handleClose, movieId }) => {
     const dispatch = useDispatch();
 

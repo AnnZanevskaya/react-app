@@ -1,18 +1,18 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-
+import { useRouter } from 'next/router';
 import { setSearch } from "../../Redux/actions";
-
-import './style.css';
 
 const Logo = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    const router = useRouter();
+
     function redirectToDefault() {
         dispatch(setSearch(""));
-        history.push('/');
+        router.push(`/search?q=`);
     }
 
     return (

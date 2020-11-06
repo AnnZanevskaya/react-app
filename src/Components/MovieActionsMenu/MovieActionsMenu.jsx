@@ -1,6 +1,6 @@
 import React from "react";
+import Close from '@material-ui/icons/Close';
 
-import './style.css';
 
 const MovieActionsMenu = ({ toggleMovieActionMenu, show, editAction, deleteAction }) => {
     const toggleActionMenu = (e) => {
@@ -21,7 +21,7 @@ const MovieActionsMenu = ({ toggleMovieActionMenu, show, editAction, deleteActio
     if (show)
         return (
             <div className="action-menu">
-                <span className="button-close material-icons" onClick={toggleActionMenu}>close</span>
+                <Close className="button-close" onClick={toggleActionMenu}/>
                 <p onClick={handleEdit}>Edit</p>
                 <p onClick={handleDelete}>Delete</p>
             </div>

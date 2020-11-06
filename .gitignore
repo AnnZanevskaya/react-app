@@ -5,3 +5,4 @@ dist/
 debug.log
 build
 dev
+.next

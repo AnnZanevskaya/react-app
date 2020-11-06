@@ -13,7 +13,7 @@ import MovieEmptyList from "../MovieEmptyList";
 const MoviesContent = ({sortOrder,filter, searchQuery}) => {
     const dispatch = useDispatch();
     const movies = useSelector(state => state.movies.fetchedMovies);
-  
+
     useEffect(() => {
         dispatch(fetchMovies(searchQuery, filter, sortOrder));
     }, [searchQuery, filter, sortOrder]);

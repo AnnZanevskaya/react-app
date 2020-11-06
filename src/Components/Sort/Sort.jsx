@@ -3,8 +3,6 @@ import { useDispatch, connect } from 'react-redux';
 
 import { fetchMovies, setSortOrder } from "../../Redux/actions";
 
-import './style.css';
-
 const Sort = ({ filter,  search}) => {
     const dispatch = useDispatch();
     const [activeItem, setActiveItem] = useState('release_data');

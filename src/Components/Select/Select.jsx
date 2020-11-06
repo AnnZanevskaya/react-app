@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import MultiSelect from 'react-multi-select-component';
-import './style.css';
 
 const Select = ({ name, label, options, preselected,validationError, onSelectChange }) => {
     const [selected, setSelected] = useState(preselected || []);

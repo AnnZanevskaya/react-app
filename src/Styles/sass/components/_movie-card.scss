@@ -31,3 +31,49 @@
     border-radius: 5px;
     @include font($size: 0.9rem);
 }
+
+.movie-card {
+    position: relative;
+    width: 320px;
+}
+
+.movie-card__action-menu {
+    position: relative;
+}
+
+.movie-card__action-menu:hover .action-menu__container{
+    display: inline-block;
+}
+
+.movie-card__body{
+    width: 80%;
+}
+
+.action-menu__container {
+    display: none;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6));
+    position: absolute;
+    top: 3%;
+    left: 83%;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.action-menu__container:hover {
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9));
+    position: absolute;
+}
+
+.action-menu__btn {
+    width: 30px;
+    height: 30px;
+    background-image: radial-gradient(circle, white 2px, transparent 1px);
+    background-size: 100% 33.33%;
+}
+
+.description-confirm {
+    font-size: 1.4rem;
+    color: #f4f7f6;
+
+    margin-bottom: 30px;
+}
