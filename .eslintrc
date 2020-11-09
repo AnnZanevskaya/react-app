@@ -1,11 +1,13 @@
 {
     "env": {
       "browser": true,
-      "node": true
+      "node": true,
+      "jest": true
     },
     "extends": [
-      "airbnb/base",
-      "prettier"
-    ]
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint"
   }
   
