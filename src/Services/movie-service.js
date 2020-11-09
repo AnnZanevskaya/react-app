@@ -1,70 +1,69 @@
 import axios from 'axios';
 
-const movieServiceUrl = "http://localhost:4000/";
+const movieServiceUrl = 'http://localhost:4000/';
 
 async function sendRequest(resourceUrl, method, requestBody = null) {
-    let result = null;
+  let result = null;
 
-    await axios({
-            method: method,
-            url: resourceUrl,
-            data: requestBody
-        })
-        .then((response) => {
-            result = (response.data.data) ? response.data.data : response.data;
-        });
+  await axios({
+    method,
+    url: resourceUrl,
+    data: requestBody,
+  })
+    .then((response) => {
+      result = (response.data.data) ? response.data.data : response.data;
+    });
 
-    return result;
+  return result;
 }
 
 export async function getAllMovies() {
-    const resourceUrl = `${movieServiceUrl}movies`;
-    const movies = await sendRequest(resourceUrl, 'GET');
+  const resourceUrl = `${movieServiceUrl}movies`;
+  const movies = await sendRequest(resourceUrl, 'GET');
 
-    return movies;
+  return movies;
 }
 
 export async function getMovies(search, filter, sortBy) {
-    const searchBy = "title";
-    const sortOrder = "desc";
-    const limit = 9;
+  const searchBy = 'title';
+  const sortOrder = 'desc';
+  const limit = 9;
 
-    const searchParams = search ? `&search=${search}&searchBy=${searchBy}` : "";
-    const filterParams = filter !== "all" ? `&filter=${filter}` : "";
+  const searchParams = search ? `&search=${search}&searchBy=${searchBy}` : '';
+  const filterParams = filter !== 'all' ? `&filter=${filter}` : '';
 
-    const resourceUrl = `${movieServiceUrl}movies?sortOrder=${sortOrder}&limit=${limit}${searchParams}${filterParams}&sortBy=${sortBy}`;
-    const movies = await sendRequest(resourceUrl, 'GET');
+  const resourceUrl = `${movieServiceUrl}movies?sortOrder=${sortOrder}&limit=${limit}${searchParams}${filterParams}&sortBy=${sortBy}`;
+  const movies = await sendRequest(resourceUrl, 'GET');
 
-    return movies;
+  return movies;
 }
 
 export async function getMovie(id) {
-    const resourceUrl = `${movieServiceUrl}movies/${id}`;
-    let result = null;
-    try {
-        result = await sendRequest(resourceUrl, 'GET');
+  const resourceUrl = `${movieServiceUrl}movies/${id}`;
+  let result = null;
+  try {
+    result = await sendRequest(resourceUrl, 'GET');
+  } catch (e) {
+    console.log(`Could not find movie with id: ${id}`);
+    result = undefined;
+  }
 
-    } catch (e) {
-        console.log(`Could not find movie with id: ${id}`);
-        result = undefined;
-    }
-
-    return result;
+  return result;
 }
 
 export async function createMovie(movie) {
-    const resourceUrl = `${movieServiceUrl}movies`;
-    const result = await sendRequest(resourceUrl, 'POST', movie);
+  const resourceUrl = `${movieServiceUrl}movies`;
+  const result = await sendRequest(resourceUrl, 'POST', movie);
 
-    return result;
+  return result;
 }
 
 export async function updateMovie(movie) {
-    const resourceUrl = `${movieServiceUrl}movies`;
-    await sendRequest(resourceUrl, 'PUT', movie);
+  const resourceUrl = `${movieServiceUrl}movies`;
+  await sendRequest(resourceUrl, 'PUT', movie);
 }
 
 export async function deleteMovie(movieId) {
-    const resourceUrl = `${movieServiceUrl}movies/${movieId}`;
-    await sendRequest(resourceUrl, 'DELETE');
+  const resourceUrl = `${movieServiceUrl}movies/${movieId}`;
+  await sendRequest(resourceUrl, 'DELETE');
 }

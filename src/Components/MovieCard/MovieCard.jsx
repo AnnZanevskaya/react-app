@@ -1,11 +1,10 @@
 import React from "react";
+import { useRouter } from 'next/router';
 
 import MovieActionsMenu from '../MovieActionsMenu';
 import MovieEdit from '../MovieEdit';
 import MovieDelete from '../MovieDelete';
 import { useToggle } from '../../Hooks/hooks';
-import { useRouter } from 'next/router';
-
 
 const MovieCard = ({ movie }) => {
     const router = useRouter();

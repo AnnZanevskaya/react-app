@@ -11,6 +11,10 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.10.4",
     "@babel/runtime": "^7.1.5",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/react": "^6.0.28",
     "autoprefixer": "^9.8.6",
     "axios": "^0.20.0",
     "babel-eslint": "^10.1.0",
@@ -40,6 +44,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-is": "^17.0.1",
     "react-multi-select-component": "^3.0.2",
     "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
@@ -62,7 +67,10 @@
     "test": "jest --no-cache --coverage",
     "next:dev": "next dev",
     "next:build": "next build",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "storybook": "start-storybook -p 6006 --no-dll",
+    "build-storybook": "build-storybook --no-dll"
   },
   "repository": {
     "type": "git",
@@ -76,15 +84,21 @@
   },
   "homepage": "https://github.com/AnnZanevskaya/react#readme",
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.12.5",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@storybook/addon-knobs": "^6.0.28",
+    "core-js": "^3.7.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.22.1",
     "history": "^5.0.0",
     "identity-obj-proxy": "^3.0.0",
     "next": "^10.0.1",
     "react-router-dom": "^5.2.0",
-    "react-test-renderer": "^17.0.1"
+    "react-test-renderer": "^17.0.1",
+    "regenerator-runtime": "^0.13.7",
+    "storybook": "^6.0.28"
   }
 }

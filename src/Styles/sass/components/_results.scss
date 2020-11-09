@@ -1,6 +1,7 @@
 .results__description {
     color: $color-light;
     @include font($size: 1.4rem);
+    background-color: $color-dark;
 }
 
 .results__count{

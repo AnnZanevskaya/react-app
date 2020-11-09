@@ -1,12 +1,11 @@
 import React from "react";
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "../../Components/Header";
 import MoviesContent from "../../Components/MoviesContent";
 import Footer from "../../Components/Footer";
 import { setSearch, getMovie } from "../../Redux/actions";
-import { useLocation, useParams, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from 'next/router';
 
 function HomePage() {
   const dispatch = useDispatch();
