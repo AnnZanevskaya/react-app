@@ -8,6 +8,7 @@ import { rootReducer } from '../Redux/root-reducer';
 import App from '../App';
 import '../Styles/sass/style.scss';
 
+//PATTERN: JSX Spread Attributes
 export default function AppNext({ Component, props }) {
   const store = createStore(rootReducer, compose(
     applyMiddleware(
