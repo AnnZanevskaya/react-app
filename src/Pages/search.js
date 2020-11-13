@@ -1,6 +1,6 @@
-import React from 'react'
-import HomePage from '../Pages/Home';
+import React from 'react';
+import HomePage from './Home';
 
 export default function SearchPage() {
-    return <HomePage />;
-  }
+  return <HomePage />;
+}

@@ -4,6 +4,7 @@ import { useDispatch, connect } from 'react-redux';
 import { fetchMovies, setFilter } from "../../Redux/actions";
 import { filters } from "../../Constants/constants";
 
+//PATTERN: Higher-order component
 const Filter = ({sortOrder, search}) => {
     const dispatch = useDispatch();
     const [activeItem, setActiveItem] = useState('all');

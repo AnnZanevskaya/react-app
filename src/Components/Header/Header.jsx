@@ -8,6 +8,7 @@ import Search from "../Search";
 import MovieAdd from "../MovieAdd";
 import MovieDetailsHeaderContent from "../MovieDetailsHeader/MovieDetailsHeaderContent";
 
+//PATTERN: Conditional Rendering
 const Header = ({ onClose }) => {
     const history = useHistory();
     const filmDetails = useSelector(state => state.movies.movie);

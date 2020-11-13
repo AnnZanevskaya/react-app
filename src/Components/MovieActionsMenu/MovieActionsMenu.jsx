@@ -1,7 +1,6 @@
 import React from "react";
 import Close from '@material-ui/icons/Close';
 
-
 const MovieActionsMenu = ({ toggleMovieActionMenu, show, editAction, deleteAction }) => {
     const toggleActionMenu = (e) => {
         e.stopPropagation();

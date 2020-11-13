@@ -35,5 +35,4 @@ MovieDetails.propTypes = {
     }).isRequired,
 };
 
-
 export default MovieDetails;
