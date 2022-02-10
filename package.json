@@ -38,7 +38,7 @@
     "image-webpack-loader": "^4.6.0",
     "jest": "^26.6.1",
     "mini-css-extract-plugin": "^0.4.5",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "prettier": "^2.0.5",
     "prop-types": "^15.7.2",
